@@ -1,5 +1,5 @@
 import {defineConfig} from "vite";
 
-defineConfig({
+export default defineConfig({
 	base: "/create_your_cat_js"
 })
