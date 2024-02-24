@@ -5,38 +5,88 @@
     <link rel="icon" type="image/svg+xml" href="/create_your_cat_js/vite.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Vite App</title>
-  <script type="module" crossorigin src="/create_your_cat_js/assets/index-cujv61JP.js"></script>
-  <link rel="stylesheet" crossorigin href="/create_your_cat_js/assets/index-cDpQe-DS.css">
+  <script type="module" crossorigin src="/create_your_cat_js/assets/index-CUA804El.js"></script>
+  <link rel="stylesheet" crossorigin href="/create_your_cat_js/assets/index-DiBKWree.css">
 </head>
 <body>
 <div id="app">
+    <label>
+        gif?
+        <input id='gif' type="checkbox">
+    </label>
+    <label>
+        Select Tag:
+        <select id='tag'>
+        </select>
+    </label>
+    <label>
+        Enter Text:
+        <input id="text" type="text" placeholder="enter text">
+    </label>
+    <label>
+        Font Size:
+        <input id="fontSize" type="number" min="10" max="100">
+    </label>
+    <label>
+        Text Color:
+        <select id="textColor">
+            <option value="white">White</option>
+            <option value="black">Black</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+        </select>
+    </label>
+    <label id="labelType">
+        Type:
+        <select id="type">
+            <option value="">None</option>
+            <option value="xsmall">XSmall</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="square">Square</option>
+        </select>
+    </label>
+    <label>
+        Filter:
+        <select id="filter">
+            <option value="">None</option>
+            <option value="mono">Mono</option>
+            <option value="negate">Negate</option>
+            <option value="custom">Custom</option>
+        </select>
+    </label>
+    <div id="customParameters" style="display: none;">
         <label>
-            Select Tag:
-            <select id='tag'>
-            </select>
+            Brightness:
+            <input id="brightness" type="number" min="0" max="100">
         </label>
         <label>
-            gif?
-            <input id='gif' type="checkbox">
+            Lightness:
+            <input id="lightness" type="number" min="0" max="100">
         </label>
         <label>
-            Enter Text:
-            <input id="text" type="text" placeholder="enter text">
+            Saturation:
+            <input id="saturation" type="number" min="0" max="100">
         </label>
         <label>
-            Font Size:
-            <input id="fontSize" type="number" min="10" max="100" value="40">
+            Hue:
+            <input id="hue" type="number" min="0" max="360">
         </label>
         <label>
-            Text Color:
-            <select id="textColor">
-                <option value="white">White</option>
-                <option value="black">Black</option>
-                <option value="red">Red</option>
-                <option value="blue">Blue</option>
-            </select>
+            RGB
+            <input type="color" id="RGB" value="#e66465"/>
         </label>
-        <button id="submit">get cat</button>
+        <label>
+            Width:
+            <input id="width" type="number" min="0" max="5000">
+        </label>
+        <label>
+            Height:
+            <input id="height" type="number" min="0" max="5000">
+        </label>
     </div>
+    <button id="submit">get cat</button>
+    <button id="save" disabled>Save Image</button>
+</div>
 </body>
 </html>
