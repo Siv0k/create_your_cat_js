@@ -1,15 +1,37 @@
-const submitButton = document.getElementById('submit')
+import './styles/style.css';
+import {handleFormSubmit, toggleCustomParameters, getTags} from './js/form.js';
+import {saveImg} from "./js/utilities/utilities.js";
 
-submitButton.addEventListener("click", () => {
-	const tag = document.getElementById('tag').value;
-	const text = document.getElementById('text').value;
-	const url = `https://cataas.com/cat/${tag}/says/${text}`;
+const formElements = {
+	submitButton: document.getElementById('submit'),
+	saveButton: document.getElementById('save'),
+	tagSelect: document.getElementById('tag'),
+	gifCheckbox: document.getElementById('gif'),
+	textInput: document.getElementById('text'),
+	fontSizeInput: document.getElementById('fontSize'),
+	textColorInput: document.getElementById('textColor'),
+	typeInput: document.getElementById('type'),
+	filterInput: document.getElementById('filter'),
+	brightnessInput: document.getElementById('brightness'),
+	lightnessInput: document.getElementById('lightness'),
+	saturationInput: document.getElementById('saturation'),
+	hueInput: document.getElementById('hue'),
+	colorInput: document.getElementById('RGB'),
+	widthInput: document.getElementById('width'),
+	heightInput: document.getElementById('height'),
+};
 
-	fetch(url)
-		.then(response => response.blob())
-		.then(blob => {
-			const img = document.createElement('img')
-			img.src = URL.createObjectURL(blob)
-			document.body.appendChild(img)
-		})
-})
+await getTags(formElements);
+
+formElements.filterInput.addEventListener('change', function () {
+	toggleCustomParameters(this);
+});
+
+formElements.submitButton.addEventListener("click", async () => {
+	await handleFormSubmit(formElements);
+	formElements.saveButton.disabled = false;
+});
+
+formElements.saveButton.addEventListener("click", () => {
+	saveImg();
+});
