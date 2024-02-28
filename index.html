@@ -28,6 +28,7 @@
     <label>
         Text Color:
         <select id="textColor">
+            <option value="">None</option>
             <option value="white">White</option>
             <option value="black">Black</option>
             <option value="red">Red</option>
@@ -72,7 +73,7 @@
         </label>
         <label>
             RGB
-            <input type="color" id="RGB" value="#e66465"/>
+            <input type="color" id="RGB"/>
         </label>
         <label>
             Width:
@@ -86,6 +87,7 @@
     <button id="submit">get cat</button>
     <button id="save" disabled>Save Image</button>
 </div>
+    <div id="loader"></div>
 <script type="module" src="/src/main.js"></script>
 </body>
 </html>

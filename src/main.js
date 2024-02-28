@@ -1,6 +1,6 @@
 import './styles/style.css';
-import {handleFormSubmit, toggleCustomParameters, getTags} from './js/form.js';
-import {saveImg} from "./js/utilities/utilities.js";
+import {handleFormSubmit, toggleCustomParameters, tagOptions} from './js/form.js';
+import {saveImg, removeOldImg} from "./utilities/utilities.js";
 
 const formElements = {
 	submitButton: document.getElementById('submit'),
@@ -19,17 +19,23 @@ const formElements = {
 	colorInput: document.getElementById('RGB'),
 	widthInput: document.getElementById('width'),
 	heightInput: document.getElementById('height'),
+	loader: document.getElementById('loader')
 };
 
-await getTags(formElements);
+tagOptions(formElements).then(() => {
+	formElements.submitButton.addEventListener("click", async () => {
+		removeOldImg();
+		formElements.loader.style.display = 'block';
+
+		await handleFormSubmit(formElements);
+
+		formElements.loader.style.display = 'none';
+		formElements.saveButton.disabled = false;
+	});
+});
 
 formElements.filterInput.addEventListener('change', function () {
 	toggleCustomParameters(this);
-});
-
-formElements.submitButton.addEventListener("click", async () => {
-	await handleFormSubmit(formElements);
-	formElements.saveButton.disabled = false;
 });
 
 formElements.saveButton.addEventListener("click", () => {

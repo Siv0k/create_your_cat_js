@@ -15,4 +15,11 @@ const saveImg = () => {
 	link.click();
 }
 
-export {hexToRgb, saveImg}
+const removeOldImg = () => {
+	const oldImg = document.getElementById('catImg');
+	if (oldImg) {
+		oldImg.remove();
+	}
+}
+
+export {hexToRgb, saveImg, removeOldImg}

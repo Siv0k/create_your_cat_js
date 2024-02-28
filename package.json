@@ -12,8 +12,5 @@
   "devDependencies": {
     "gh-pages": "^6.1.1",
     "vite": "^5.1.0"
-  },
-  "dependencies": {
-    "choices.js": "^10.2.0"
   }
 }
