@@ -5,90 +5,104 @@
     <link rel="icon" type="image/svg+xml" href="/create_your_cat_js/vite.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Vite App</title>
-  <script type="module" crossorigin src="/create_your_cat_js/assets/index-59CKoL_o.js"></script>
-  <link rel="stylesheet" crossorigin href="/create_your_cat_js/assets/index-CABwj-9y.css">
+  <script type="module" crossorigin src="/create_your_cat_js/assets/index-C76yNiGJ.js"></script>
+  <link rel="stylesheet" crossorigin href="/create_your_cat_js/assets/index-kvycKPHp.css">
 </head>
 <body>
 <div id="app">
-    <label>
-        gif?
-        <input id='gif' type="checkbox">
-    </label>
-    <label>
-        Select Tag:
-        <select id='tag'>
-        </select>
-    </label>
-    <label>
-        Enter Text:
-        <input id="text" type="text" placeholder="enter text">
-    </label>
-    <label>
-        Font Size:
-        <input id="fontSize" type="number" min="10" max="100">
-    </label>
-    <label>
-        Text Color:
-        <select id="textColor">
-            <option value="">None</option>
-            <option value="white">White</option>
-            <option value="black">Black</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-        </select>
-    </label>
-    <label id="labelType">
-        Type:
-        <select id="type">
-            <option value="">None</option>
-            <option value="xsmall">XSmall</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="square">Square</option>
-        </select>
-    </label>
-    <label>
-        Filter:
-        <select id="filter">
-            <option value="">None</option>
-            <option value="mono">Mono</option>
-            <option value="negate">Negate</option>
-            <option value="custom">Custom</option>
-        </select>
-    </label>
-    <div id="customParameters" style="display: none;">
+    <div id="form">
         <label>
-            Brightness:
-            <input id="brightness" type="number" min="0" max="100">
+            gif?
+            <input id='gif' type="checkbox">
         </label>
         <label>
-            Lightness:
-            <input id="lightness" type="number" min="0" max="100">
+            Select Tag:
+            <select id='tag'>
+                <option value="">None</option>
+                <option value="Cute">cute</option>
+                <option value="angry">angry</option>
+                <option value="black">black cat</option>
+                <option value="white">white cat</option>
+                <option value="cool">cool cat</option>
+                <option value="fat">fat cat</option>
+                <option value="orange">orange cat</option>
+            </select>
         </label>
+        <label id="labelType">
+            Type:
+            <select id="type">
+                <option value="">None</option>
+                <option value="xsmall">XSmall</option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="square">Square</option>
+            </select>
+        </label>
+        <div id="textBlock">
+            <label>
+                Enter Text:
+                <input id="text" type="text" placeholder="enter text">
+            </label>
+            <label>
+                Font Size:
+                <input id="fontSize" type="number" min="10" max="100">
+            </label>
+            <label>
+                Text Color:
+                <select id="textColor">
+                    <option value="">None</option>
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                </select>
+            </label>
+        </div>
         <label>
-            Saturation:
-            <input id="saturation" type="number" min="0" max="100">
+            Filter:
+            <select id="filter">
+                <option value="">None</option>
+                <option value="mono">Mono</option>
+                <option value="negate">Negate</option>
+                <option value="custom">Custom</option>
+            </select>
         </label>
-        <label>
-            Hue:
-            <input id="hue" type="number" min="0" max="360">
-        </label>
-        <label>
-            RGB
-            <input type="color" id="RGB"/>
-        </label>
-        <label>
-            Width:
-            <input id="width" type="number" min="0" max="5000">
-        </label>
-        <label>
-            Height:
-            <input id="height" type="number" min="0" max="5000">
-        </label>
+        <div id="customParameters" style="display: none;">
+            <label>
+                Brightness:
+                <input id="brightness" type="number" min="0" max="100">
+            </label>
+            <label>
+                Lightness:
+                <input id="lightness" type="number" min="0" max="100">
+            </label>
+            <label>
+                Saturation:
+                <input id="saturation" type="number" min="0" max="100">
+            </label>
+            <label>
+                Hue:
+                <input id="hue" type="number" min="0" max="360">
+            </label>
+            <label>
+                RGB
+                <input type="color" id="RGB"/>
+            </label>
+            <label>
+                Width:
+                <input id="width" type="number" min="0" max="5000">
+            </label>
+            <label>
+                Height:
+                <input id="height" type="number" min="0" max="5000">
+            </label>
+        </div>
+        <button id="submit">get cat</button>
+        <button id="save" disabled>Save Image</button>
     </div>
-    <button id="submit">get cat</button>
-    <button id="save" disabled>Save Image</button>
+    <div id="imageBlock">
+        <div id="loader"></div>
+    </div>
 </div>
-    <div id="loader"></div>
 </body>
 </html>
