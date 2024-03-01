@@ -17,9 +17,8 @@ const saveImg = () => {
 
 const removeOldImg = () => {
 	const oldImg = document.getElementById('catImg');
-	if (oldImg) {
-		oldImg.remove();
-	}
+	oldImg?.src && URL.revokeObjectURL(oldImg.src);
+	oldImg?.remove();
 }
 
 export {hexToRgb, saveImg, removeOldImg}
