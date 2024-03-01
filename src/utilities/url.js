@@ -32,9 +32,9 @@ const getURL = (formElements) => {
 		}
 	});
 
-	const requestUrl = URL + gif + tag + textURL;
+	const newUrl = URL + gif + tag + textURL;
 
-	return requestUrl + '?' + parameters.toString();
+	return newUrl + '?' + parameters.toString();
 };
 
 export {getURL};

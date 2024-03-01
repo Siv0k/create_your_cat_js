@@ -1,5 +1,5 @@
 import './styles/style.css';
-import {handleFormSubmit, toggleCustomParameters, tagOptions} from './js/form.js';
+import {handleFormSubmit, toggleCustomParameters, toggleTypeParameters} from './js/form.js';
 import {saveImg, removeOldImg} from "./utilities/utilities.js";
 
 const formElements = {
@@ -19,23 +19,30 @@ const formElements = {
 	colorInput: document.getElementById('RGB'),
 	widthInput: document.getElementById('width'),
 	heightInput: document.getElementById('height'),
+	imageBlock: document.getElementById('imageBlock'),
 	loader: document.getElementById('loader')
 };
 
-tagOptions(formElements).then(() => {
-	formElements.submitButton.addEventListener("click", async () => {
-		removeOldImg();
-		formElements.loader.style.display = 'block';
 
-		await handleFormSubmit(formElements);
+formElements.submitButton.addEventListener("click", async () => {
+	removeOldImg();
+	formElements.submitButton.disabled = true;
+	formElements.loader.style.display = 'block';
 
-		formElements.loader.style.display = 'none';
-		formElements.saveButton.disabled = false;
-	});
+	await handleFormSubmit(formElements);
+
+	formElements.submitButton.disabled = false
+	formElements.loader.style.display = 'none';
+	formElements.saveButton.disabled = false;
 });
+
 
 formElements.filterInput.addEventListener('change', function () {
 	toggleCustomParameters(this);
+});
+
+formElements.typeInput.addEventListener('change', function () {
+	toggleTypeParameters(this);
 });
 
 formElements.saveButton.addEventListener("click", () => {

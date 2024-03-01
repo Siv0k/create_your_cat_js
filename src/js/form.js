@@ -1,30 +1,34 @@
 import {getURL} from '../utilities/url.js';
-import {getCatImage} from "../api/catApi.js";
-import {getTags} from "../api/catApi.js";
+import {getCatImage} from "../api/api.js";
 
-const tagOptions = async (formElements) => {
-	const tags = await getTags()
-	tags.forEach(tag => {
-		const option = document.createElement('option');
-		option.value = tag;
-		option.text = tag;
-		formElements.tagSelect.appendChild(option);
-	});
-};
+const toggleTypeParameters = (typeInput) => {
+	const textBlock = document.getElementById('textBlock');
 
+	if (typeInput.value === 'square' || typeInput.value === '') {
+		textBlock.style.display = 'block';
+	} else {
+		textBlock.style.display = 'none';
+	}
+
+}
 
 const toggleCustomParameters = (filterInput) => {
-	const customParametersDiv = document.getElementById('customParameters');
+	const customParametersBlock = document.getElementById('customParameters');
 	const labelType = document.getElementById('labelType');
 	const typeInput = document.getElementById('type');
+	const customParameterInputs = customParametersBlock.getElementsByTagName('input');
 
 	if (filterInput.value === 'custom') {
-		customParametersDiv.style.display = 'block';
+		customParametersBlock.style.display = 'block';
 		labelType.style.display = 'none'
 		typeInput.value = '';
 	} else {
-		customParametersDiv.style.display = 'none';
+		customParametersBlock.style.display = 'none';
 		labelType.style.display = 'block'
+
+		for (let input of customParameterInputs) {
+			input.value = '';
+		}
 	}
 }
 
@@ -35,10 +39,8 @@ const handleFormSubmit = async (formElements) => {
 	const img = document.createElement('img');
 
 	img.id = 'catImg';
-	const objectURL = URL.createObjectURL(blob);
-	img.src = objectURL;
-	img.onload = () => URL.revokeObjectURL(objectURL);
-	document.body.appendChild(img);
+	img.src = URL.createObjectURL(blob);
+	formElements.imageBlock.appendChild(img);
 }
 
-export {handleFormSubmit, toggleCustomParameters, tagOptions}
+export {handleFormSubmit, toggleCustomParameters, toggleTypeParameters}
