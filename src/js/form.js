@@ -34,7 +34,6 @@ const toggleCustomParameters = (filterInput) => {
 
 const handleFormSubmit = async (formElements) => {
 	const url = getURL(formElements);
-	console.log(url);
 	const blob = await getCatImage(url);
 	const img = document.createElement('img');
 
