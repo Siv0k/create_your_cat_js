@@ -2,7 +2,7 @@ import {hexToRgb} from "/src/utilities/utilities.js";
 
 const URL = 'https://cataas.com/cat';
 
-const getURL = (formElements) => {
+const prepareUrl = (formElements) => {
 	const gif = formElements.gifCheckbox.checked ? '/gif' : '';
 	const tag = !formElements.gifCheckbox.checked && formElements.tagSelect.value ? `/${formElements.tagSelect.value}` : '';
 	const textURL = formElements.textInput.value ? `/says/${formElements.textInput.value}` : '';
@@ -37,4 +37,4 @@ const getURL = (formElements) => {
 	return newUrl + '?' + parameters.toString();
 };
 
-export {getURL};
+export {prepareUrl};

@@ -27,13 +27,14 @@ const formElements = {
 formElements.submitButton.addEventListener("click", async () => {
 	removeOldImg();
 	formElements.submitButton.disabled = true;
+	formElements.saveButton.disabled = true;
 	formElements.loader.style.display = 'block';
 
 	await handleFormSubmit(formElements);
 
 	formElements.submitButton.disabled = false
-	formElements.loader.style.display = 'none';
 	formElements.saveButton.disabled = false;
+	formElements.loader.style.display = 'none';
 });
 
 

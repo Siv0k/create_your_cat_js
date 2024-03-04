@@ -1,4 +1,4 @@
-import {getURL} from '../utilities/url.js';
+import {prepareUrl} from '../utilities/url.js';
 import {getCatImage} from "../api/api.js";
 
 const toggleTypeParameters = (typeInput) => {
@@ -16,7 +16,7 @@ const toggleCustomParameters = (filterInput) => {
 	const customParametersBlock = document.getElementById('customParameters');
 	const labelType = document.getElementById('labelType');
 	const typeInput = document.getElementById('type');
-	const customParameterInputs = customParametersBlock.getElementsByTagName('input');
+	const customParameterInputs = customParametersBlock.getElementsByClassName('customParamInput');
 
 	if (filterInput.value === 'custom') {
 		customParametersBlock.style.display = 'block';
@@ -33,7 +33,7 @@ const toggleCustomParameters = (filterInput) => {
 }
 
 const handleFormSubmit = async (formElements) => {
-	const url = getURL(formElements);
+	const url = prepareUrl(formElements);
 	const blob = await getCatImage(url);
 	const img = document.createElement('img');
 
